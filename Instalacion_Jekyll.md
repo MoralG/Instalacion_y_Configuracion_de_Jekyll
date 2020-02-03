@@ -127,10 +127,12 @@ Ya tenemos Jekyll instalado y con el proyecto creado, ahora podemos configurarlo
 * **/_config.yml**: Es el fichero de configuración principal, donde le indicamos un monton de párametros de la generación de la página estática. Si quieres saber más, te recomiendo pichar [AQUÍ](https://jekyllrb.com/docs/configuration/).
 * **/_posts/**: Es el directorio donde tenemos que añadir los ficheros Markdown donde 
 
-> Descargamos de [AQUÍ](http://jekyllthemes.org/) el tema.
+Ahora vamos aintalar un nuevo tema. Para realizar esto, lo primero que tenemos que hacer es descargarnos el fichero `.zip` de [AQUÍ](http://jekyllthemes.org/) el tema.
 
-~~~
-mv Soot-Spirits-master /home/vagrant/Alejandro-MG/
+Una vez se nos haya descargado, la descromprimimos y accedemos al directorio del tema y ejecutamos `bundle install` para instalar las dependencias del tema, y las gemas de ruby necesarias para dicho tema.
+
+~~~ 
+unzip Soot-Spirits-master 
 cd Soot-Spirits-master
 bundle install
     .
@@ -153,15 +155,20 @@ bundle install
 ~~~
 
 
-Error de nokogiri:
-~~~
-sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev
-sudo gem install nokogiri
-~~~
+> NOTA: Puede que al realizar la instalación de las dependencias nos salte un error de nokogiri, esto es muy común en algunos temas de Jekyll, para solucionar esto tenemos que instalar la gema de nokogiri y sus dependencias:
+>
+>~~~
+>sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev
+>sudo gem install nokogiri
+>~~~
+
+Por último tenenemos que mover todos los fichero del directorio del tema al directorio del proyecto.
 
 ~~~
 mv Soot-Spirits-master/* .
 ~~~
+
+Cuando lo tengamos todo listo, vamos a iniciar el servidor local para comprobar que el tema esta activo y funcinando
 
 ~~~
 bundle exec jekyll serve
@@ -175,3 +182,5 @@ bundle exec jekyll serve
         Server address: http://127.0.0.1:4000
       Server running... press ctrl-c to stop.
 ~~~
+
+![Tarea1.1_Jekyll](image/Tarea1.1_Jekyll.png)
